@@ -29,7 +29,13 @@ function Microphone (_fft) {
 
     function startMic (context) {
 
-      navigator.getUserMedia({ audio: true }, processSound, error);
+      navigator.mediaDevices.getUserMedia({ audio: true })
+      .then(function(stream) {
+        processSound(stream);
+      })
+      .catch(function(err) {
+        console.error(arguments);
+      });
 
       function processSound (stream) {
 
@@ -62,11 +68,18 @@ function Microphone (_fft) {
 
       }
 
-      function error () {
-        console.log(arguments);
+      // contextResume forces browsers that auto-suspend the AudioContext
+      // on load to reliably resume it with a keypress
+      function contextResume() {
+        if(context.state === 'suspended') {
+          context.resume();
+        }
       }
+      window.addEventListener("keypress", contextResume);
 
     }
+
+
 
     //////// SOUND UTILITIES  ////////
 
@@ -82,9 +95,10 @@ function Microphone (_fft) {
         //console.log(Math.round(self.peak_volume) + " : " + Math.round(self.spectrum[new_freq]));
         // map the volumes to a useful number
         var s = map(self.spectrum[new_freq], 0, self.peak_volume, min, max);
-        //console.log(s);
+        // console.log('🎧 sound: ', s);
         return s;
       } else {
+        // console.log('❌ no sound');
         return 0;
       }
 
