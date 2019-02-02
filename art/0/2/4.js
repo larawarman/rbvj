@@ -1,54 +1,114 @@
-rbvj = function() {
+rbvj = function () {
+  console.log("playing '2e'");
 
-  var numParticles = 60;
-  var particles = [];
+  ctx.lineWidth = 1;
 
-  for (var i = 0; i < numParticles; i++) {
-    addParticle(i);
+  var radius = 220;
+  var out = radius;
+  var out_on = false;
+  var center_on = false;
+  var all_on = false;
+  var adding = false;
+  var removing = false;
+  var c = 0;
+  var dir = 1;
+  var rotation = 0;
+  var num_particles = 2;
+  var engine = new particleEngine( num_particles, 1 );
+  var particles = engine.particles;
+
+  for ( var i = 0; i < particles.length; i++ ) {
+    addNode( i );
   }
 
-  function addParticle(i) {
-    var x = map(i, 0, numParticles, 0, window.innerWidth);
-    var particle = {
-      x: 0,
-      y: 0,
-      r: random(1000),
-      strokeColor: rgb(random(100, 255)),
-      fillColor: rgba(0, random(55), random(0, 255), random(0, 255)),
-      strokeWeight: randomInt(1, 4),
-      size: 450,
-      me: i
-    }
+  function addNode( i ) {
+    var p = particles[ i ];
+    p.angle = radians( -90 + i * 360 / particles.length );
+    p.pos.x = w / 2 + ( p.sz / 2 + radius ) * Math.cos( p.angle );
+    p.pos.y = h / 2 + ( p.sz / 2 + radius ) * Math.sin( p.angle );
+    p.start.x = p.pos.x;
+    p.start.y = p.pos.y;
+    p.radius = radius;
 
-    particles.push(particle);
   }
 
-
-
-  draw = function() {
-    ctx.background(0);
-    for (var i = 0; i < particles.length; i++) {
-      var vol = Sound.mapSound(i, particles.length, 0, w / 2);
-      particles[i].strokeWeight = map( vol, 0, w/2, 1, 8);
-      particles[i].size = tween(particles[i].size, vol * 2, 8);
-
+  function addNewNode() {
+    var me = particles.length;
+    engine.add();
+    addNode( me );
+    for ( var i = 0; i < particles.length; i++ ) {
+      var p = particles[ i ];
+      p.angle = radians( -90 + i * 360 / particles.length );
+      p.radius = radius;
     }
+  }
+
+  draw = function () {
+
+    //ctx.background(189, 218, 229, 1);
+    ctx.background( 0 );
+    if ( chance( 500 ) ) adding = !adding;
+    if ( chance( 500 ) ) removing = !removing;
+    var ratio = w / Sound.spectrum.length;
+
+    if ( chance( 100 ) && adding ) addNewNode();
+    if ( chance( 100 ) && removing && engine.particles.length > 3 ) engine.delete();
     moveParticles();
-
   }
+
 
   function moveParticles() {
 
-    for (var i = 0; i < particles.length; i++) {
-      particle = particles[i];
-      ctx.strokeStyle = particles[i].strokeColor;
-      ctx.lineWidth = particles[i].strokeWeight;
-      ctx.HstrokeEllipse(w/2, h/2, particle.size, particle.size);
+    if ( chance( 300 ) ) dir = posNeg();
+    rotation = dir * Sound.spectrum[ 50 ];
+
+    c = tween( c, 40 + map( Sound.spectrum[ 40 ], 0, 100, 0, 80 ), 10 );
+    ctx.strokeStyle = rgba( 245, 245, 245, 1 );
+
+    if ( chance( 500 ) ) out_on = !out_on;
+    if ( chance( 200 ) ) out_on = false;
+    if ( chance( 500 ) ) all_on = !all_on;
+    if ( chance( 300 ) ) center_on = !center_on;
+
+    for ( var i = 0; i < particles.length; i++ ) {
+      p = particles[ i ];
+      var me = Math.floor( p.me * 360 / particles.length );
+      p.angle += radians( rotation / 120 );
+      p.radius = tween( p.radius, map( Sound.spectrum[ p.me ], 0, 80, c, 200 ), 2 );
+
+      if ( chance( 500 ) || out_on ) {
+        out = p.radius * 0.7;
+      }
+      if ( all_on ) {
+        p.on = true;
+      } else {
+        p.on = false;
+      }
+
+      if ( chance( 100 ) ) p.on = !p.on;
+
+
+      var s = Sound.mapSound( i, particles.length, p.radius, 200 );
+      p.sz = tween( p.sz, map( p.radius, 0, 100, 0, 20 ), 12 );
+      p.pos.x = w / 2 + ( out ) * Math.cos( p.angle );
+      p.pos.y = h / 2 + ( out ) * Math.sin( p.angle );
+      var linepos = new Vector( w / 2 + ( out - p.sz / 2 ) * Math.cos( p.angle ),
+        h / 2 + ( out - p.sz / 2 ) * Math.sin( p.angle ) );
+      var linepos2 = new Vector( w / 2 + c / 2 * Math.cos( p.angle ), h / 2 + c / 2 * Math.sin( p.angle ) );
+      ctx.strokeStyle = rgba( 245 );
+      ctx.line( linepos2.x, linepos2.y, linepos.x, linepos.y );
+
+      ctx.fillStyle = rgb( 245 );
+
+      ctx.HstrokeEllipse( p.pos.x, p.pos.y, p.sz, p.sz );
+      if ( p.on ) ctx.fillEllipse( p.pos.x, p.pos.y, p.sz - 20, p.sz - 20 );
+
     };
 
+
+    ctx.HstrokeEllipse( w / 2, h / 2, c, c );
+    if ( center_on ) ctx.HfillEllipse( w / 2, h / 2, c - 20, c - 20 );
   }
-
-
 
 
 }();

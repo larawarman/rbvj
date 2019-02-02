@@ -1,5 +1,5 @@
 rbvj = function () {
-  console.log("playing '2d'");
+  console.log("playing '3d'");
 
   let numParticles = 85;
   let engine = new particleEngine( 200, 1 );
@@ -9,9 +9,10 @@ rbvj = function () {
     p.c = randomGrey();
   }
 
+
   draw = function () {
 
-    ctx.background( 0, 0.2 );
+    ctx.background( 245, 0.2 );
     for ( let p of engine.particles ) {
 
       let s = Sound.mapSound( p.me, engine.particles.length * 2, 0, w / 2 );

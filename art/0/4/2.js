@@ -1,5 +1,4 @@
 rbvj = function () {
-  console.log("playing '1d'");
 
   var vol = 0;
 
@@ -19,7 +18,7 @@ rbvj = function () {
 
   draw = function () {
     if ( chance( 200 ) ) reset();
-    ctx.background( 245 );
+    ctx.background( 255 );
     for ( var i = 0; i < engine.particles.length; i++ ) {
       var p = engine.particles[ i ];
       vol = Sound.mapSound( i, engine.particles.length * 3, 0, 10 );
