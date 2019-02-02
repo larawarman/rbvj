@@ -1,5 +1,4 @@
 rbvj = function () {
-  console.log("playing '0s'");
 
   var c = 0;
   var dir = 1;
@@ -121,8 +120,8 @@ rbvj = function () {
 
       shakers[ i ].x = Math.cos( angle ) * d;
       shakers[ i ].y = Math.sin( angle ) * d;
-      ctx.fillStyle = rgb(200);
-      ctx.strokeStyle = rgb(200);
+      ctx.fillStyle = "white";
+      ctx.strokeStyle = "white";
       ctx.fillEllipse( shakers[ i ].x, shakers[ i ].y, 12, 12 );
       angle = 2 * Math.PI / shakers.length * i;
       for ( var j = 0; j < num_movers; j++ ) {

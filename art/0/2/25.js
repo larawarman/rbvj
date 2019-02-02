@@ -1,9 +1,8 @@
 rbvj = function () {
-  console.log("playing '0z'");
 
   var Wave = function ( _pos_y ) {
 
-    ctx.strokeStyle = rgb( 200 );
+    ctx.strokeStyle = rgba( 0, 0, 0, 0.8 );
     ctx.lineWidth = 2;
 
     this.particles = [];
@@ -62,7 +61,7 @@ rbvj = function () {
 
         p.sz = Sound.mapSound( me + pos_y / 20, 2560, 6 );
 
-        ctx.fillStyle = rgb( 200 );
+        ctx.fillStyle = rgba( 0, 0, 0, 1 );
 
         if ( i > 0 ) ctx.line( p.x, p.y, particles[ i - 1 ].x, particles[ i - 1 ].y );
 
@@ -82,7 +81,7 @@ rbvj = function () {
   };
 
   draw = function () {
-    ctx.background( 0 );
+    ctx.background( 255 );
     g1 = 10 + Math.sin( ( frameCount / 50 ) % 100 ) * 200;
     g2 = 10 + Math.sin( ( frameCount / 100 ) % 200 ) * 300;
     for ( var i = 0; i < num_waves; i++ ) {

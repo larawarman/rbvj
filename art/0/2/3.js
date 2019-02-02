@@ -1,7 +1,6 @@
 rbvj = function() {
-  console.log("playing '0e'");
 
-  ctx.strokeStyle = rgba( 150, 150, 150, 0.8);
+  ctx.strokeStyle = rgba(0, 0, 0, 0.8);
   ctx.lineWidth = 7;
   ctx.lineCap = "round";
   ctx.lineJoin = "miter";
@@ -27,7 +26,7 @@ rbvj = function() {
 
   draw = function() {
 
-    ctx.background(0);
+    ctx.background(255);
     drawParticles();
 
   }
@@ -59,10 +58,10 @@ rbvj = function() {
       p.sz = tween(p.sz, circ_sz + Math.sin(p.counter) * 20, 10);
       if (Sound.spectrum[p.me] > 80) {
         p.on == true;
-        ctx.fillStyle = rgb( 150 );
+        ctx.fillStyle = rgb(0, 0, 0);
         ctx.fillEllipse(p.x, p.y, p.sz, p.sz);
       } else {
-        ctx.fillStyle = rgba(150, 150, 150, 0.08);
+        ctx.fillStyle = rgba(0, 0, 0, 0.08);
       }
       if (chance(10000) && p.on == true) {
         p.on == false;

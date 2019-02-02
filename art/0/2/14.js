@@ -1,12 +1,11 @@
 rbvj = function () {
-  console.log("playing '0p'");
 
-  ctx.strokeStyle = rgba( 0, 0, 0, 0.5 );
+  ctx.strokeStyle = rgba( 0, 0, 0, 0.8 );
   var num = 120;
   var particles = [];
 
   var time = 0;
-  ctx.fillStyle = rgb(200);
+  ctx.fillStyle = "white";
 
   /// SETUP
   for ( var i = 0; i < num; i++ ) {
@@ -23,7 +22,7 @@ rbvj = function () {
 
   this.draw = function () {
     //ctx.clearRect(0, 0,w,h);
-    ctx.background( 0, 0.2 )
+    ctx.background( 240, 0.2 )
     ctx.save();
     ctx.translate( w / 2, h / 2 );
     var t = Sound.mapSound( 50, particles.length * 2, 1, 10 ) * 0.0001;

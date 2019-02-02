@@ -1,5 +1,4 @@
 rbvj = function () {
-  console.log("playing '0n'");
 
   var circSize = 30;
   var t = 0;
@@ -11,7 +10,7 @@ rbvj = function () {
   var rot;
   ctx.lineWidth = 1;
   resetMe();
-  ctx.strokeStyle = rgb( 200 );
+  ctx.strokeStyle = rgb( 255 );
 
   function resetMe() {
     rot = 0;

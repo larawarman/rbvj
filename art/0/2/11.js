@@ -1,5 +1,4 @@
 rbvj = function () {
-  console.log("playing '0m'");
 
   num = 3;
   movers = 3;
@@ -12,13 +11,13 @@ rbvj = function () {
   var moverX;
   var moverY;
 
-  ctx.strokeStyle = "#c8c8c8";
+  ctx.strokeStyle = "black";
   ctx.fillStyle = "white";
   ctx.lineWidth = 4;
 
   draw = function () {
 
-    ctx.background( 0 );
+    ctx.background( 240 );
 
 
     change();

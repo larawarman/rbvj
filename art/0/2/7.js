@@ -1,5 +1,4 @@
 rbvj = function () {
-  console.log("playing '0i'");
 
   var circs = [];
   var r = width / 8;
@@ -17,7 +16,7 @@ rbvj = function () {
         vol: 0,
         dir: posNeg(),
         y: _y,
-        myfill: rgb( 200 ),
+        myfill: rgb( 255, 255, 255 ),
         lw: lw
       }
       circs.push( circle );
@@ -29,8 +28,8 @@ rbvj = function () {
 
   draw = function () {
 
-    ctx.background( 0 );
-    ctx.strokeStyle = rgb( 200 );
+    ctx.background( 255 );
+    ctx.strokeStyle = rgb( 0 );
 
     for ( var i = 0; i < circs.length; i++ ) {
 

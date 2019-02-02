@@ -1,5 +1,4 @@
 rbvj = function () {
-  console.log("playing '0c'");
 
   var num_particles = 2;
   var engine = new particleEngine( num_particles, 1 );
@@ -48,7 +47,7 @@ rbvj = function () {
 
   draw = function () {
 
-    ctx.background( 0 );
+    ctx.background( 245 );
 
     if ( chance( 400 ) ) adding = !adding;
     if ( chance( 400 ) ) removing = !removing;
@@ -72,8 +71,8 @@ rbvj = function () {
     rotation = dir * Sound.spectrum[ 50 ];
 
     c = tween( c, 40 + map( Sound.spectrum[ 40 ], 0, 100, 0, 80 ), 2 );
-    ctx.strokeStyle = rgb( 200 );
-    ctx.fillStyle = rgb ( 200 );
+    ctx.strokeStyle = rgb( 0 );
+    ctx.fillStyle = rgb ( 0 );
     ctx.HfillEllipse( w / 2, h / 2, c, c );
 
     ctx.HstrokeEllipse( w / 2, h / 2, c, c );
@@ -112,10 +111,10 @@ rbvj = function () {
       var linepos = new Vector( w / 2 + ( p.radius - p.sz / 2 ) * Math.cos( p.angle ),
         h / 2 + ( p.radius - p.sz / 2 ) * Math.sin( p.angle ) );
       var linepos2 = new Vector( w / 2 + c / 2 * Math.cos( p.angle ), h / 2 + c / 2 * Math.sin( p.angle ) );
-      ctx.strokeStyle = rgba( 200 );
+      ctx.strokeStyle = rgba( 0 );
       ctx.line( linepos2.x, linepos2.y, linepos.x, linepos.y );
 
-      ctx.fillStyle = rgb( 200 );
+      ctx.fillStyle = rgb( 0 );
 
       ctx.HstrokeEllipse( p.pos.x, p.pos.y, p.sz, p.sz );
       if ( p.on ) ctx.fillEllipse( p.pos.x, p.pos.y, p.sz - 20, p.sz - 20 );

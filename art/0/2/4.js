@@ -1,5 +1,4 @@
 rbvj = function() {
-  console.log("playing '0f'");
 
   var numParticles = 60;
   var particles = [];
@@ -14,7 +13,7 @@ rbvj = function() {
       x: 0,
       y: 0,
       r: random(1000),
-      strokeColor: rgb(random(100, 200)),
+      strokeColor: rgb(random(100, 255)),
       fillColor: rgba(0, random(55), random(0, 255), random(0, 255)),
       strokeWeight: randomInt(1, 4),
       size: 450,

@@ -1,5 +1,4 @@
 rbvj = function () {
-  console.log("playing '0u'");
 
   ctx.background( 0 );
   var vol = 0;
@@ -26,7 +25,7 @@ rbvj = function () {
       y: _y,
       speed_x: random( -2, 2 ),
       speed_y: random( -5, -1 ),
-      c: rgb( 200 ),
+      c: rgba( 255 ),
       sz: sz
     }
 

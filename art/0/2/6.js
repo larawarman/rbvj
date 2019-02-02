@@ -1,5 +1,4 @@
 rbvj = function(){
-  console.log("playing '0h'");
 
 var vol = 0;
 var gx, gy;
@@ -12,13 +11,13 @@ function reset() {
   gx = randomInt(20, 85);
   gy = randomInt(20, 120);
   engine = new particleEngine(gx, gy);
-  ctx.fillStyle = rgb(200);
+  ctx.fillStyle = rgb(0);
 }
 
 
 draw = function() {
 
-  ctx.background(0);
+  ctx.background(255);
 
   if (chance(400)) reset();
 

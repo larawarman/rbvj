@@ -1,5 +1,4 @@
 rbvj = function () {
-  console.log("playing '0b'");
 
   var fov = 240;
 
@@ -27,7 +26,7 @@ rbvj = function () {
   spacing = ( ( Math.PI * 2 ) / dim );
   numPoints = dim * dim;
   points = [];
-  ctx.fillStyle = rgb(200);
+  ctx.fillStyle = rgb(255);
   ctx.strokeStyle = rgb(0);
 
   for ( var i = 0; i < dim; i++ ) {
@@ -71,7 +70,6 @@ rbvj = function () {
       z3d = point3d[ 2 ];
 
       var scale = ( fov / ( fov + z3d ) );
-      // console.log(scale);
       var x2d = ( x3d * scale ) + HALF_WIDTH;
       var y2d = ( y3d * scale ) + HALF_HEIGHT;
 

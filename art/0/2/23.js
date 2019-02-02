@@ -1,5 +1,4 @@
 rbvj = function () {
-  console.log("playing '0x'");
 
   var particles = [];
   var radius = 180;
@@ -7,12 +6,12 @@ rbvj = function () {
   draw = function () {
     var ratio = w / Sound.spectrum.length;
 
-    ctx.background( 0 );
+    ctx.background( 255 );
 
     for ( var i = 0; i < Sound.spectrum.length / 2; i += 2 ) {
       var x = w / 2 + Math.cos( radians( Sound.mapSound( i, Sound.spectrum.length / 2, 0, 360 ) ) ) * radius;
       var y = h / 2 + Math.sin( radians( Sound.mapSound( i, Sound.spectrum.length / 2, 0, 360 ) ) ) * radius;
-      if ( Sound.spectrum[ i ] > 1 ) addParticle( x, y, "#c8c8c8" );
+      if ( Sound.spectrum[ i ] > 1 ) addParticle( x, y, "#000" );
     };
     moveParticles();
   }
@@ -39,7 +38,7 @@ rbvj = function () {
       p.sz *= 0.85;
       ctx.fillStyle = p.c;
       ctx.fillEllipse( p.x, p.y, p.sz, p.sz );
-      ctx.fillStyle = "#c8c8c8";
+      ctx.fillStyle = "#fff";
       if ( p.sz > 0.2 ) ctx.fillEllipse( p.x, p.y, p.sz / 5, p.sz / 5 );
       if ( p.x < 0 || p.y < 0 || p.x > w || p.y > h || p.sz < 0.2 ) particles.splice( i, 1 );
     };

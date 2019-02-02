@@ -1,5 +1,4 @@
 rbvj = function () {
-  console.log("playing '0y'");
 
   var particles = [];
   var radius = 160;

@@ -1,7 +1,5 @@
 rbvj = function () {
-  console.log("playing '0j'");
-
-  renderer.setClearColor('#000000');
+  renderer.setClearColor('#ffffff');
   ctx.clearRect( 0, 0, w, h );
   var sphere = [];
   var sphereGeom = [];
@@ -47,7 +45,7 @@ rbvj = function () {
   scene.add( ambientLight );
 
   // add spotlight for the shadows
-  var spotLight = new THREE.DirectionalLight( 0xDDDDDD );
+  var spotLight = new THREE.DirectionalLight( 0xffffff );
   spotLight.position.set( -20, 30, 40 );
   spotLight.intensity = 1.5;
   scene.add( spotLight );
@@ -86,7 +84,7 @@ rbvj = function () {
     //   } );
     // } else {
     var planetMaterial = new THREE.MeshPhongMaterial( {
-      color: 0x888888,
+      color: 0x111111,
       side: THREE.DoubleSide,
       clippingPlanes: clipPlanes[ i ],
     } );

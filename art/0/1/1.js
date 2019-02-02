@@ -1,4 +1,5 @@
 rbvj = function(){
+console.log("playing '1b'");
 
 var particles = [];
 var numParticles = 40;
@@ -42,7 +43,7 @@ function moveParticles(){
     particle.x= particle.sz * (Math.sin(i)),
     particle.y = tween(particle.y, h/2 + f, 2);
     ctx.lineWidth = particle.sz;
-    ctx.strokeStyle = rgb(255);
+    ctx.strokeStyle = rgb(200);
       if (particle.dir == 1) {
         var v = 0;
         var vv = w;

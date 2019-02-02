@@ -1,5 +1,3 @@
-console.log("playing '0o'");
-
 var particle_array = [];
 var imgData;
 var maxParticles = 10000;

@@ -1,4 +1,5 @@
 rbvj = function () {
+  console.log("playing '1c'");
 
   let numParticles = 85;
   let engine = new particleEngine( 200, 1 );

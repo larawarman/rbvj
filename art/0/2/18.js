@@ -1,5 +1,4 @@
 rbvj = function () {
-  console.log("playing '0t'");
 
   var block_size = 20;
   var rect_size = 60;

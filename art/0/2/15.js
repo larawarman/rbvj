@@ -1,5 +1,4 @@
 rbvj = function () {
-  console.log("playing '0q'");
 
   var particles = [];
   var radius = 220;
@@ -21,9 +20,9 @@ rbvj = function () {
 
   draw = function () {
 
-    ctx.background( 0 );
+    ctx.background( 255 );
     moveParticles();
-    ctx.fillStyle = rgb( 200 );
+    ctx.fillStyle = rgba( 0, 0, 0, 1 );
 
   }
 

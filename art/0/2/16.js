@@ -1,5 +1,4 @@
 rbvj = function () {
-  console.log("playing '0r'");
 
   var grid_w = 80;
   var grid_h = 50;
