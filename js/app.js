@@ -33,7 +33,7 @@ var current_bank = 0;
 
 
 function setup() {
-  changeFile( randomInt(26) );
+  changeFile( 0 );
 }
 
 
