@@ -29,7 +29,7 @@ var art_location = "/art";
 var fileref;
 var current_file = 0;
 var current_set = 0;
-var current_bank = 0;
+var current_bank = 1;
 
 
 function setup() {

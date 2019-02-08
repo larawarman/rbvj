@@ -1,5 +1,5 @@
 rbvj = function () {
-  console.log("playing '0a'");
+  console.log("playing '1a'");
 
   draw = function () {
     ctx.background( 0 );

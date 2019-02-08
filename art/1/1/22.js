@@ -1,5 +1,5 @@
 rbvj = function () {
-  console.log("playing '0w'");
+  console.log("playing '1w'");
 
   var particles = [];
   var r = width / 2 - 10;
@@ -22,11 +22,11 @@ rbvj = function () {
   }
 
   draw = function () {
-    ctx.background( 0 );
+    ctx.background( 245 );
     for ( var i = 0; i < particles.length; i++ ) {
       var p = particles[ i ];
       vol = Sound.mapSound( i % 100, 100, 0, 8 ) - random( 0.3 );
-      ctx.fillStyle = rgb( 200 );
+      ctx.fillStyle = rgb( 0 );
       ctx.fillRect( p.x, p.y, r, vol );
     }
 

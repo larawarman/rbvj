@@ -1,10 +1,10 @@
 rbvj = function () {
-  console.log("playing '0l'");
+  console.log("playing '1l'");
 
   var circs = [];
   var r = width / 14;
   var vol = 0;
-  ctx.strokeStyle = rgb( 200 );
+  ctx.strokeStyle = rgb( 0 );
 
   var gx = randomInt( 3, 25 );
   var gy = Math.floor( h / 15 );
@@ -25,7 +25,7 @@ rbvj = function () {
   reset();
 
   draw = function () {
-    ctx.background( 0 );
+    ctx.background( 245 );
     if ( chance( 50 ) && Sound.getBassVol() > 60 ) reset();
     for ( var i = 0; i < engine.particles.length; i++ ) {
 

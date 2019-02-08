@@ -33,11 +33,11 @@ rbvj = function () {
       var b = engine.particles[ i ];
       var s = Sound.mapSound( i, engine.particles.length * 2, 0, 255 );
       ctx.fillStyle = rgb( s );
-      // if ( mode == 1 ) {
+      if ( mode == 1 ) {
         ctx.fillRect( b.pos.x, b.pos.y, b.h - 5, b.h - 5 );
-      // } else {
-      //   ctx.fillEllipse( b.pos.x, b.pos.y, b.h - 5, b.h - 5 );
-      // }
+      } else {
+        ctx.fillEllipse( b.pos.x, b.pos.y, b.h - 5, b.h - 5 );
+      }
 
     }
   }
