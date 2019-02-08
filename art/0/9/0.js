@@ -51,7 +51,7 @@ function addParticle( _x, _y ) {
     orig_y: _y,
     x: _x + random( -4, 4 ),
     y: _y + random( -4, 4 ),
-    c: rgb( random( 40, 255 ), random( 10, 255 ), random( 255 ) ),
+    c: rgb( random( 40, 255 ) ),
     size: 4,
     reduce: random( 0.9, 0.99 ),
     alpha: 0,

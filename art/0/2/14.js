@@ -1,5 +1,6 @@
+
 rbvj = function () {
-  console.log("playing '2b'");
+  console.log("playing '3b'");
 
   ctx.lineWidth = 1;
   var gx = randomInt( 2, 15 );
@@ -18,11 +19,11 @@ rbvj = function () {
 
   draw = function () {
     if ( chance( 400 ) ) reset();
-    ctx.background( 0 );
+    ctx.background( 245 );
     for ( var i = 0; i < engine.particles.length; i++ ) {
       var p = engine.particles[ i ];
       var vol = Sound.mapSound( i, engine.particles.length, 0, 10 );
-      ctx.fillStyle = rgb( 200 );
+      ctx.fillStyle = rgb( 0 );
       ctx.fillRect( p.pos.x - ( engine.grid.spacing_x - 10 ) / 2, p.pos.y, engine.grid.spacing_x - 5, 1.5 * Math.abs( vol ) );
       p.pos.y += 1;
       if ( p.pos.y > h ) p.pos.y = 0;
