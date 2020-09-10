@@ -22,11 +22,11 @@ rbvj = function () {
   }
 
   draw = function () {
-    ctx.background( 0 );
+    ctx.background( 242,240,231 );
     for ( var i = 0; i < particles.length; i++ ) {
       var p = particles[ i ];
       vol = Sound.mapSound( i % 100, 100, 0, 8 ) - random( 0.3 );
-      ctx.fillStyle = rgb( 200 );
+      ctx.fillStyle = rgb( 173,159,50 );
       ctx.fillRect( p.x, p.y, r, vol );
     }
 
